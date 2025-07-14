@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Premium Electronics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">TechStore</div>
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="showSection('products')">Products</button>
+                    <button class="btn btn-secondary" onclick="showSection('cart')">
+                        Cart <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <!-- Products Section -->
+            <div id="products" class="section active">
+                <h1 class="section-title">Premium Electronics</h1>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Cart Section -->
+            <div id="cart" class="section">
+                <h1 class="section-title">Shopping Cart</h1>
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items will be populated by JavaScript -->
+                </div>
+                <div class="cart-total" id="cartTotal" style="display: none;">
+                    Total: $0.00
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn btn-primary" onclick="showSection('checkout')" id="checkoutBtn" style="display: none;">
+                        Proceed to Checkout
+                    </button>
+                </div>
+            </div>
+
+            <!-- Checkout Section -->
+            <div id="checkout" class="section">
+                <h1 class="section-title">Checkout</h1>
+                <form class="checkout-form" id="checkoutForm">
+                    <div class="order-summary" id="orderSummary">
+                        <!-- Order summary will be populated by JavaScript -->
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="zipCode">ZIP Code</label>
+                            <input type="text" id="zipCode" name="zipCode" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiryDate">Expiry Date</label>
+                            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="place-order">Place Order</button>
+                </form>
+            </div>
+
+            <!-- Success Section -->
+            <div id="success" class="section">
+                <div class="success-message">
+                    <h2>Order Placed Successfully! 🎉</h2>
+                    <p>Thank you for your purchase. Your order will be processed shortly.</p>
+                    <p>Order ID: <span id="orderId"></span></p>
+                    <button class="btn btn-primary" onclick="startOver()">Continue Shopping</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
